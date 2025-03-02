@@ -5,7 +5,7 @@
   /* buttons */
   --btn-border-radius: var(--border-radius-lg);
   /* title */
-  --title-margin: 64px;
+  --title-margin: 44px;
   /* colors */
   --white-color: #ffffff;
   --yellow-color: #FFE000;
@@ -81,8 +81,8 @@ a {
   margin: auto;
 }
 
-.section {
-  margin-bottom: 100px;
+.section:not(:first-child) {
+  padding: 50px 0 66px;
 }
 
 .title-wrapper {
@@ -137,7 +137,7 @@ h2,
 @media (min-width: 768px) {
   h2,
   .h2 {
-    font-size: 54px;
+    font-size: 44px;
   }
 }
 
@@ -159,6 +159,13 @@ p, a {
   .subtitle {
     font-size: 50px;
   }
+}
+
+.card-shadow, .advantage-card, .registration-step {
+  box-shadow: 0 4px 20px 0 rgba(255, 225, 0, 0.2784313725);
+}
+.card-shadow:hover, .advantage-card:hover, .registration-step:hover {
+  box-shadow: 0 4px 20px 0 #ffe100;
 }
 
 @keyframes blink {
@@ -266,6 +273,11 @@ p, a {
 }
 .button-primary:before {
   content: "";
+}
+@media (min-width: 768px) {
+  .button-primary {
+    min-width: 300px;
+  }
 }
 
 .button-black {
@@ -528,15 +540,15 @@ p, a {
 
 .registration-step {
   background: var(--card-bg);
-  box-shadow: 0 4px 20px 0 rgba(255, 225, 0, 0.2784313725);
+  border: 2px solid #FFF;
   padding: 20px;
   padding-right: 60px;
   border-radius: var(--border-radius);
   position: relative;
+  z-index: 2;
   transition: 0.3s all ease-in-out;
 }
 .registration-step__title {
-  font-weight: 700;
   margin-bottom: 10px;
 }
 .registration-step__title::before {
@@ -553,29 +565,184 @@ p, a {
   font-size: 80px;
   color: var(--primary-color);
 }
-.registration-step:hover {
-  --card-bg: var(--primary-color);
-  color: var(--gray-950);
-  transform: translateY(-5px);
-}
-.registration-step:hover .registration-step__title::before {
-  color: var(--gray-950);
-}
 @media (min-width: 768px) {
   .registration-step:not(:last-child)::after {
     content: "";
     position: absolute;
-    top: -10%;
+    top: -2%;
     left: 100%;
     transform: translate(-50%, -100%);
     width: 60%;
     height: 40px;
     background: url(assets/svg/arrow.svg) no-repeat center;
-    border-radius: 50%;
     animation: blink 3s infinite;
   }
 }
 
+.section-advantages {
+  overflow: hidden;
+  background: #4c11aa;
+}
+.section-advantages__cards-grid {
+  display: grid;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .section-advantages__cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.advantage-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: inherit;
+  position: relative;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  border: 2px solid #FFF;
+  transition: 0.3s all ease-in-out;
+}
+
+.star-effect {
+  position: absolute;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+}
+
+.star-1 {
+  top: 20%;
+  left: 20%;
+  width: 25px;
+  z-index: -5;
+  transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.star-2 {
+  top: 45%;
+  left: 45%;
+  width: 15px;
+  z-index: -5;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-3 {
+  top: 40%;
+  left: 40%;
+  width: 5px;
+  z-index: -5;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-4 {
+  top: 20%;
+  left: 40%;
+  width: 8px;
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-5 {
+  top: 25%;
+  left: 45%;
+  width: 15px;
+  z-index: -5;
+  transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-6 {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 5px;
+  z-index: -5;
+  transition: all 0.8s ease;
+}
+
+.advantage-card:hover .star-1 {
+  position: absolute;
+  top: -40%;
+  left: -10%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+.advantage-card:hover .star-2 {
+  position: absolute;
+  top: -15%;
+  left: 10%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+.advantage-card:hover .star-3 {
+  position: absolute;
+  top: 55%;
+  left: 25%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+.advantage-card:hover .star-4 {
+  position: absolute;
+  top: 30%;
+  left: 80%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+.advantage-card:hover .star-5 {
+  position: absolute;
+  top: 25%;
+  left: 115%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+.advantage-card:hover .star-6 {
+  position: absolute;
+  top: 5%;
+  left: 60%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+.fil0 {
+  fill: #FFFDEF;
+}
+
+.section-promo.section {
+  padding-bottom: 0;
+}
 .section-promo__title {
-  margin-bottom: calc(var(--title-margin) / 2);
+  position: relative;
+  display: inline-block;
+}
+.section-promo__arrow {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-30%, -50%) rotate(90deg);
+  height: auto;
+  width: 40%;
+  animation: blink 3s infinite;
+}
+@media (min-width: 768px) {
+  .section-promo__arrow {
+    width: 30%;
+  }
 }/*# sourceMappingURL=style.css.map */
