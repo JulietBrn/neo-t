@@ -5,7 +5,7 @@
   /* buttons */
   --btn-border-radius: var(--border-radius-lg);
   /* title */
-  --title-margin: 44px;
+  --title-margin: 34px;
   /* colors */
   --white-color: #ffffff;
   --yellow-color: #FFE000;
@@ -52,7 +52,7 @@ button {
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--bg-color);
   color: var(--text-color);
   font-family: "Arial", sans-serif;
@@ -82,7 +82,7 @@ a {
 }
 
 .section:not(:first-child) {
-  padding: 50px 0 66px;
+  padding: 60px 0 76px;
 }
 
 .title-wrapper {
@@ -293,122 +293,30 @@ p, a {
   width: 100%;
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-@media (min-width: 1200px) {
-  .nav {
-    max-width: 45%;
-  }
-}
-
-.logo {
-  text-transform: uppercase;
-  font-size: 36px;
-  line-height: 150%;
-  letter-spacing: 0.03em;
-  font-family: "Prata";
-}
-
-.nav-menu {
-  --padding-link: 5px;
-  display: flex;
-  gap: calc(30px - 2 * var(--padding-link));
-}
-.nav-menu__link {
-  padding: var(--padding-link);
-  font-style: italic;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.nav-menu__link:hover {
-  text-decoration: underline;
-}
-
 .header {
   --header-padding: 10px;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 50;
   padding: var(--header-padding) 0;
   width: 100%;
   transition: all 0.3s;
-}
-@media (min-width: 992px) {
-  .header {
-    --header-padding: 30px;
-  }
 }
 .header-scroll {
   background: var(--bg-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.burger {
-  cursor: pointer;
-  transform: translateY(-2px);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-@media (min-width: 768px) {
-  .burger {
-    display: none;
-  }
-}
-.burger::before, .burger::after {
-  content: "";
-  width: 24px;
-  height: 2px;
-  background: var(--text-color);
-  display: block;
-  margin: 5px 0;
-  transition: all 0.2s;
-}
-.burger.burger-rotate .burger-span {
-  opacity: 0;
-}
-.burger.burger-rotate::before {
-  transform: translateY(9px) rotate(45deg);
-}
-.burger.burger-rotate::after {
-  transform: translateY(-9px) rotate(-45deg);
+.logo {
+  text-transform: uppercase;
+  font-size: 36px;
+  line-height: 100%;
+  letter-spacing: 0.03em;
+  font-family: "Prata";
 }
 
-.burger-span {
-  width: 24px;
-  height: 2px;
-  background: var(--text-color);
-}
-
-@media (max-width: 768px) {
-  .header__nav-menu {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s;
-    padding: var(--container-padding);
-    overflow: auto;
-    position: fixed;
-    top: calc(var(--header-top) - 2px);
-    left: 0;
-    width: 100%;
-    height: calc(100dvh - var(--header-top) + 4px);
-    background: var(--dark-color);
-    z-index: 40;
-    flex-direction: column;
-    align-items: center;
-  }
-  .header__nav-menu.nav-hidden {
-    opacity: 1;
-    visibility: visible;
-  }
-}
 .section-hero {
-  background: var(--dark-color);
   --slide-padding-bottom: 60px;
 }
 .section-hero h1 {
@@ -447,32 +355,32 @@ p, a {
   flex-shrink: 0;
   width: 100%;
   min-height: 100dvh;
-  background: url(assets/img/bg/sweetBonanza_1.png) center center/cover no-repeat;
+  background: url(assets/img/bg/sweetBonanza_1.webp) center center/cover no-repeat;
   padding-bottom: var(--slide-padding-bottom);
-  padding-top: 20%;
+  padding-top: calc(var(--header-top) + 20px);
   transition: background 0.5s ease;
   position: relative;
   z-index: 2;
 }
 @media (min-width: 768px) {
   .section-hero__slide {
-    padding-top: 10%;
+    padding-top: calc(var(--header-top) + 5%);
   }
 }
 .section-hero__slide:first-child {
-  background-image: url(assets/img/bg/sweetBonanza_1.png);
+  background-image: url(assets/img/bg/sweetBonanza_1.webp);
 }
 .section-hero__slide:first-child:hover {
-  background-image: url(assets/img/bg/sweetBonanza_2.png);
+  background-image: url(assets/img/bg/sweetBonanza_2.webp);
 }
 .section-hero__slide:nth-child(2) {
-  background-image: url(assets/img/bg/wolfGoldUltimate_1.png);
+  background-image: url(assets/img/bg/wolfGoldUltimate_1.webp);
 }
 .section-hero__slide:nth-child(2):hover {
-  background-image: url(assets/img/bg/wolfGoldUltimate_2.png);
+  background-image: url(assets/img/bg/wolfGoldUltimate_2.webp);
 }
 .section-hero__slide:nth-child(3) {
-  background-image: url(assets/img/bg/olympus_bg.png);
+  background-image: url(assets/img/bg/olympus_bg.webp);
 }
 .section-hero__slide:before {
   content: "";
@@ -527,6 +435,8 @@ p, a {
 
 .section-registration-process {
   counter-reset: num;
+  position: relative;
+  z-index: 2;
 }
 .section-registration-process__steps-grid {
   display: grid;
@@ -576,12 +486,18 @@ p, a {
     height: 40px;
     background: url(assets/svg/arrow.svg) no-repeat center;
     animation: blink 3s infinite;
+    animation-delay: 1s;
   }
+}
+.registration-step .diamond-decoration_top-right {
+  right: 5%;
 }
 
 .section-advantages {
   overflow: hidden;
   background: #4c11aa;
+  position: relative;
+  z-index: 2;
 }
 .section-advantages__cards-grid {
   display: grid;
@@ -725,6 +641,10 @@ p, a {
   fill: #FFFDEF;
 }
 
+.section-promo {
+  position: relative;
+  z-index: 2;
+}
 .section-promo.section {
   padding-bottom: 0;
 }
@@ -745,4 +665,46 @@ p, a {
   .section-promo__arrow {
     width: 30%;
   }
+}
+
+.diamond-decoration {
+  position: absolute;
+  z-index: 0;
+  width: 100px;
+  max-width: 30%;
+}
+.diamond-decoration_top {
+  top: 5%;
+  left: 10vw;
+  transform: rotate(12deg);
+}
+@media (max-width: 576px) {
+  .diamond-decoration_top {
+    left: -50px;
+  }
+}
+.diamond-decoration_center {
+  left: 62%;
+  top: 41%;
+  transform: rotate(133deg);
+}
+@media (max-width: 576px) {
+  .diamond-decoration_center {
+    top: 50%;
+  }
+}
+.diamond-decoration_bottom-left {
+  bottom: 1%;
+  left: 10vw;
+  transform: rotate(133deg);
+}
+.diamond-decoration_top-right {
+  bottom: 60%;
+  right: 10%;
+  transform: rotate(12deg) translateY(-10%);
+}
+.diamond-decoration_bottom {
+  bottom: -50%;
+  right: 15vw;
+  transform: rotate(40deg);
 }/*# sourceMappingURL=style.css.map */
