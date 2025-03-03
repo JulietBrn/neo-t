@@ -358,7 +358,7 @@ p, a {
   background: url(assets/img/bg/sweetBonanza_1.webp) center center/cover no-repeat;
   padding-bottom: var(--slide-padding-bottom);
   padding-top: calc(var(--header-top) + 20px);
-  transition: background 0.5s ease;
+  transition: background-image 0.5s ease;
   position: relative;
   z-index: 2;
 }
@@ -367,21 +367,7 @@ p, a {
     padding-top: calc(var(--header-top) + 5%);
   }
 }
-.section-hero__slide:first-child {
-  background-image: url(assets/img/bg/sweetBonanza_1.webp);
-}
-.section-hero__slide:first-child:hover {
-  background-image: url(assets/img/bg/sweetBonanza_2.webp);
-}
-.section-hero__slide:nth-child(2) {
-  background-image: url(assets/img/bg/wolfGoldUltimate_1.webp);
-}
-.section-hero__slide:nth-child(2):hover {
-  background-image: url(assets/img/bg/wolfGoldUltimate_2.webp);
-}
-.section-hero__slide:nth-child(3) {
-  background-image: url(assets/img/bg/olympus_bg.webp);
-}
+.section-hero__slide:first-child{background-image:url(assets/img/bg/sweetBonanza_1.png)}.section-hero__slide:first-child:hover{background-image:url(assets/img/bg/sweetBonanza_2.png)}.section-hero__slide:nth-child(2){background-image:url(assets/img/bg/wolfGoldUltimate_1.png)}.section-hero__slide:nth-child(2):hover{background-image:url(assets/img/bg/wolfGoldUltimate_2.png)}.section-hero__slide:nth-child(3){background-image:url(assets/img/bg/olympus_bg.png)}@supports (background-image:url("data:image/webp;base64,UklGRiIAAABXRUJQVlA4TAYAAAAvAAAA")){.section-hero__slide:first-child{background-image:url(assets/img/bg/sweetBonanza_1.webp)}.section-hero__slide:first-child:hover{background-image:url(assets/img/bg/sweetBonanza_2.webp)}.section-hero__slide:nth-child(2){background-image:url(assets/img/bg/wolfGoldUltimate_1.webp)}.section-hero__slide:nth-child(2):hover{background-image:url(assets/img/bg/wolfGoldUltimate_2.webp)}.section-hero__slide:nth-child(3){background-image:url(assets/img/bg/olympus_bg.webp)}}
 .section-hero__slide:before {
   content: "";
   position: absolute;
